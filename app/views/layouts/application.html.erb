@@ -1,42 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VTA</title>
+    <title>Blog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
-
-<%= link_to 'home', root_path %>
-<%= link_to 'about', volunteers_path  %>
-<%= link_to 'subscribe or volunteer', volunteers_path %>
-<%= link_to 'resources', resources_path %>
-<%= link_to 'faq', faq_path %>
-<%= link_to 'blog', posts_path %>
-
-
-<div class="footer">
-  <% if admin_signed_in? %>
-     Hello <%= current_admin.full_name %>,
-     <%= link_to "Logout", sessions_path, method: :delete,
-              data: {confirm: "are you sure you want to log out?"}%>
-   <% else %>
-     <%= link_to "Admin Login", new_session_path %> 🌻|
-     <%= link_to "New Admin", new_admin_path %> 🌹
-   <% end %>
-</div>
-
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+    <%# link_to 'All Posts', posts_path %>
+    <%# link_to 'New Post', new_post_path %>
+    <%= render 'layouts/messages'%>
+    <font color="green"><%# notice || alert %></font>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
+  <%# debug(params) if Rails.env.development? %>
 </html>

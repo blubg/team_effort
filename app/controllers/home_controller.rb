@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
 
-//to edit/update the resources, admin only
+
 
   def edit
   end
