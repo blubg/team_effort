@@ -1,0 +1,19 @@
+<h1>About us</h1>
+
+<h2><%= @about.title %></h2>
+  <% p = @about.body.split(/\r?\n/)%>
+  <% p.each do |paragraph|%>
+    <p><%= paragraph %></p>
+  <%end%>
+
+<h4>Did you like our way of thinking and want to become a member?</h4>
+<h4>Just sign up here ⬇️ </h4><br>
+
+<%= link_to 'Become a Member', new_volunteer_path %>
+<br>
+<br>
+<strong>These links below should not be accessible for the public, missing user authentication!!!!!!!!!!!!</strong>
+<br>
+<br>
+<%= link_to 'Create a new About Us page', new_about_path %> |
+<%= link_to 'Edit this page', edit_about_path(@about)%>

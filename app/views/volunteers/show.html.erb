@@ -1,29 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @volunteer.first_name %>
-</p>
+<% if @volunteer.status == true %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @volunteer.last_name %>
-</p>
+  <h2> Thanks for becoming a Volunteer, <%= @volunteer.first_name %>. We will be contacting you soon!</h2>
 
-<p>
-  <strong>Email:</strong>
-  <%= @volunteer.email %>
-</p>
+<%else%>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @volunteer.phone_number %>
-</p>
+  <h2> Thanks for signing up with us, <%= @volunteer.first_name %>. </h2>
 
-<p>
-  <strong>Status:</strong>
-  <%= @volunteer.status %>
-</p>
-
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volunteers_path %>
+<%end%>
