@@ -32,11 +32,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :status %>
+    <%= f.label :'By checking the box below you agree to become a volunteer' %>
     <%= f.check_box :status %>
   </div>
 
   <div class="actions">
-    <%= f.submit "submit" %>
+    <%= f.submit (volunteer.persisted? ? 'Update Member info' : 'Become a Member' ) %>
   </div>
 <% end %>

@@ -2,6 +2,22 @@
 
 <h1>Volunteers</h1>
 
+<div>
+  <%= form_tag(volunteers_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
+<div>
+  <% if @volunteers.present? %>
+    <% @volunteers %>
+  <% else %>
+    <p>There are no Volunteers containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+</div>
+<br>
+
 <table>
   <thead>
     <tr>
@@ -21,8 +37,12 @@
         <td><%= volunteer.last_name %></td>
         <td><%= volunteer.email %></td>
         <td><%= volunteer.phone_number %></td>
-        <td><%= volunteer.status %></td>
-        <td><%= link_to 'Show', volunteer %></td>
+        <td><%if volunteer.status == true %>
+              Volunteer
+            <%else%>
+              Member
+            <%end%>
+        </td>
         <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
         <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,5 +51,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Volunteer', new_volunteer_path %>

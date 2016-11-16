@@ -18,8 +18,8 @@
         <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
         <li><%=link_to "Posts", posts_path, id: "icon" %></li>
         <li><a id="icon" href="#">Twitter</a></li>
-        <li><a id="icon" href="#">About Us</a></li>
-        <li><a id="icon" href="#">Volunteer</a></li>
+        <li><a id="icon" href="/about">About Us</a></li>
+        <li><a id="icon" href="/volunteers/new">Volunteer</a></li>
         <li><a id="icon" href="#">F.A.Q</a></li>
         <% if logged_in? %>
           <li class="dropdown">
